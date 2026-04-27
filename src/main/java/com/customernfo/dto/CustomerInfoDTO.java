@@ -1,13 +1,21 @@
 package com.customernfo.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 public class CustomerInfoDTO {
 	
 	
 	private Long id;
+	@NotBlank(message = "Name canʻt be null")
 	private String name;
+	@NotNull(message = "Age canʻt be null")
+	@Positive(message = "Age should be positive")
 	private int age;
+	@NotBlank(message = "Name canʻt be blank")
 	private String address;
+	@NotBlank(message = "Email canʻt be blank")
 	private String email;
 	
 	

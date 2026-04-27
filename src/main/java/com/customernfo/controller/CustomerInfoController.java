@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.customernfo.dto.CustomerInfoDTO;
 import com.customernfo.service.CustomerInfoService;
 
+import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -23,7 +25,7 @@ public class CustomerInfoController {
 	@Autowired
 	private CustomerInfoService customerInfoService;
 	@PostMapping("/saveProduct")
-	public CustomerInfoDTO insertProduct(@RequestBody CustomerInfoDTO cdto) {
+	public CustomerInfoDTO insertProduct(@Valid@RequestBody CustomerInfoDTO cdto) {
 		return customerInfoService.createCustomer(cdto);
 		
 	}
@@ -40,7 +42,7 @@ public class CustomerInfoController {
  
  
  @PostMapping("/updateCustomer/{id}")
- public CustomerInfoDTO updateProductById(@PathVariable Long id,@RequestBody CustomerInfoDTO cdto) {
+ public CustomerInfoDTO updateProductById(@Valid @PathVariable Long id,@RequestBody CustomerInfoDTO cdto) {
 	 return customerInfoService.updateCustomer(id, cdto);
 	 
  }
